@@ -1,9 +1,17 @@
 # Getting Started
 
-### Reference Documentation
-For further reference, please consider the following sections:
+Vérifie via un TU qu'une méthode qui lance une BusinessException est bien annotée avec une @ThrowsBE(code), dont le code correspond au code utilisé lors de la création de la BusinessException.
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.7.6/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.7.6/maven-plugin/reference/html/#build-image)
+Si le code de l'annotation ne correspond pas, alors le Parser leve une exception!
 
+Par exemple : 
+```
+@ThrowsBE("123")
+void service() throws BusinessException {
+
+  throw new BusinessException("123")
+
+}
+
+
+```
